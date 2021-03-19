@@ -1,15 +1,26 @@
+import React from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { usePlugin } from "tinacms";
 import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
 import { useGithubJsonForm } from "react-tinacms-github";
-import { InlineForm, InlineText } from "react-tinacms-inline";
+import { InlineForm, InlineText, InlineTextarea } from "react-tinacms-inline";
 import { GetStaticProps } from "next";
 
+const components = {
+  Heading: require("../components/Heading")
+}
+
 export default function Home({ file }) {
+  console.log(file);
+
   const formOptions = {
     label: "Home Page",
-    fields: [{ name: "title", component: "text" }],
+    fields: [
+      { name: "head.title", component: "text" },
+      { name: "content.h1", component: "text" },
+      { name: "content.subtitle", component: "text" },
+    ],
   };
 
   const [data, form] = useGithubJsonForm(file, formOptions);
@@ -17,32 +28,20 @@ export default function Home({ file }) {
 
   return (
     <InlineForm form={form}>
-      <div className={styles.container}>
+      <div>
         <Head>
           <title>{data.head.title}</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main className={styles.main}>
-          <h1 className={styles.title}>
-            <InlineText name="content.h1" />
-          </h1>
-
-          <p className={styles.description}>
-            <InlineText name="content.subtitle" />
-          </p>
+        <main>
+          {data.content.map((content) =>
+            components[content.type]
+            React.createElement(content.type, content)
+          )}
         </main>
 
-        <footer className={styles.footer}>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by{" "}
-            <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-          </a>
-        </footer>
+        <footer></footer>
       </div>
     </InlineForm>
   );

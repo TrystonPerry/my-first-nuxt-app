@@ -2,8 +2,31 @@
   "head": {
     "title": "Head Tag"
   },
-  "content": {
-    "h1": "Heading 1",
-    "subtitle": "Subtitle"
-  }
+  "content": [
+    {
+      "type": "heading",
+      "component": "h1",
+      "text": "Heading 1"
+    },
+    {
+      "type": "heading",
+      "component": "h2",
+      "text": "Heading 2"
+    },
+    {
+      "type": "heading",
+      "component": "h3",
+      "text": "Heading 3"
+    },
+    {
+      "type": "heading",
+      "component": "h4",
+      "text": "Heading 4"
+    },
+    {
+      "type": "heading",
+      "component": "h5",
+      "text": "Heading 5"
+    }
+  ]
 }
