@@ -1,68 +1,50 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import { usePlugin } from "tinacms";
 import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
+import { useGithubJsonForm } from "react-tinacms-github";
+import { InlineForm, InlineText } from "react-tinacms-inline";
 import { GetStaticProps } from "next";
 
 export default function Home({ file }) {
-  const { data } = file;
+  const formOptions = {
+    label: "Home Page",
+    fields: [{ name: "title", component: "text" }],
+  };
+
+  const [data, form] = useGithubJsonForm(file, formOptions);
+  usePlugin(form);
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <InlineForm form={form}>
+      <div className={styles.container}>
+        <Head>
+          <title>{data.head.title}</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>{data.title}</h1>
+        <main className={styles.main}>
+          <h1 className={styles.title}>
+            <InlineText name="content.h1" />
+          </h1>
 
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+          <p className={styles.description}>
+            <InlineText name="content.subtitle" />
+          </p>
+        </main>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
+        <footer className={styles.footer}>
           <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
+            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+            Powered by{" "}
+            <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
           </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </InlineForm>
   );
 }
 
@@ -73,7 +55,7 @@ export const getStaticProps: GetStaticProps = async function ({
   if (preview) {
     return getGithubPreviewProps({
       ...previewData,
-      fileRelativePath: "content/home.json",
+      fileRelativePath: "content/index.json",
       parse: parseJson,
     });
   }
@@ -83,8 +65,8 @@ export const getStaticProps: GetStaticProps = async function ({
       error: null,
       preview: false,
       file: {
-        fileRelativePath: "content/home.json",
-        data: (await import("../content/home.json")).default,
+        fileRelativePath: "content/index.json",
+        data: (await import("../content/index.json")).default,
       },
     },
   };
