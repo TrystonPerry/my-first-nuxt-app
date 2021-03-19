@@ -1,9 +1,9 @@
 {
   "head": {
-    "title": "Democratized.Tech"
+    "title": "Head Tag"
   },
   "content": {
-    "h1": "Democratized.Tech",
-    "subtitle": "How free-and-open-source software (FOSS) is creating a democratized future."
+    "h1": "Heading 1",
+    "subtitle": "Subtitle"
   }
 }
