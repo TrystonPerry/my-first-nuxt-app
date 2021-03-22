@@ -1,32 +1,69 @@
 {
   "head": {
-    "title": "Head Tag"
+    "title": "Democratized.Tech"
   },
-  "content": [
+  "body": [
     {
-      "type": "heading",
-      "component": "h1",
-      "text": "Heading 1"
+      "component": "Hero",
+      "props": {
+        "title": "The future of Tech is Democratized",
+        "subtitle": "Take back your privacy, security and sovereignty.",
+        "primaryButton": {
+          "text": "Learn More",
+          "link": "/all"
+        },
+        "secondaryButton": {
+          "text": "Secondary",
+          "link": "/"
+        }
+      }
     },
     {
-      "type": "heading",
-      "component": "h2",
-      "text": "Heading 2"
+      "component": "Paragraph",
+      "props": {
+        "text": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book."
+      }
     },
     {
-      "type": "heading",
-      "component": "h3",
-      "text": "Heading 3"
-    },
-    {
-      "type": "heading",
-      "component": "h4",
-      "text": "Heading 4"
-    },
-    {
-      "type": "heading",
-      "component": "h5",
-      "text": "Heading 5"
+      "component": "Row",
+      "props": {
+        "flexible": true,
+        "children": [
+          {
+            "component": "TitleCard",
+            "props": {
+              "title": "Privacy",
+              "body": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+              "button": {
+                "text": "Learn More",
+                "link": "/privacy"
+              }
+            }
+          },
+          {
+            "component": "TitleCard",
+            "props": {
+              "title": "Security",
+              "body": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+              "button": {
+                "text": "Learn More",
+                "link": "/security"
+              }
+            }
+          },
+          {
+            "component": "TitleCard",
+            "props": {
+              "title": "Open Source",
+              "body": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+              "button": {
+                "text": "Learn More",
+                "link": "/open-source"
+              }
+            }
+          }
+        ]
+      }
     }
   ]
 }

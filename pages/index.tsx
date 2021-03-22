@@ -7,9 +7,9 @@ import { useGithubJsonForm } from "react-tinacms-github";
 import { InlineForm, InlineText, InlineTextarea } from "react-tinacms-inline";
 import { GetStaticProps } from "next";
 
-const components = {
-  Heading: require("../components/Heading")
-}
+import CustomComponents from "../components/globals";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 export default function Home({ file }) {
   console.log(file);
@@ -28,20 +28,21 @@ export default function Home({ file }) {
 
   return (
     <InlineForm form={form}>
-      <div>
+      <div className="page-wrapper">
         <Head>
           <title>{data.head.title}</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main>
-          {data.content.map((content) =>
-            components[content.type]
-            React.createElement(content.type, content)
+        <Header />
+
+        <main className="container">
+          {data.body.map(({ component, props }) =>
+            CustomComponents[component](props)
           )}
         </main>
 
-        <footer></footer>
+        <Footer />
       </div>
     </InlineForm>
   );

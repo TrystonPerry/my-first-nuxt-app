@@ -5,6 +5,7 @@ import {
   TinacmsGithubProvider,
   GithubMediaStore,
 } from "react-tinacms-github";
+import "../styles/globals.css";
 
 export default class Site extends App {
   cms: TinaCMS;
@@ -58,7 +59,9 @@ export default class Site extends App {
           {/**
            * 6. Add a button for entering Preview/Edit Mode
            */}
-          <EditLink cms={this.cms} />
+          <div style={{ position: "absolute", right: 0 }}>
+            <EditLink cms={this.cms} />
+          </div>
           <Component {...pageProps} />
         </TinacmsGithubProvider>
       </TinaProvider>
