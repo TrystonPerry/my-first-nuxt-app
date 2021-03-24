@@ -5,12 +5,13 @@ import {
   InlineText,
   BlocksControls,
 } from "react-tinacms-inline";
+import { ACTION_FIELDS, Actions } from "./Actions";
 
 export default function (props) {
-  const { title, subtitle, primaryButton, secondaryButton } = props.data;
+  const { title, subtitle, actions } = props.data;
 
   return (
-    <BlocksControls index={props.index}>
+    <BlocksControls insetControls={true} index={props.index}>
       <div className="hero">
         <h1>
           {/* <InlineTextarea name="title" /> */}
@@ -20,8 +21,7 @@ export default function (props) {
           {/* <InlineTextarea name="subtitle" /> */}
           {subtitle}
         </p>
-        <button className="btn-primary">{primaryButton.text}</button>
-        <button className="btn-secondary">{secondaryButton.text}</button>
+        <Actions actions={actions} />
       </div>
     </BlocksControls>
   );
@@ -29,6 +29,10 @@ export default function (props) {
 
 export const hero_template = {
   label: "Hero",
+  defaultItem: {
+    title: "Title",
+    subtitle: "Subtitle",
+  },
   fields: [
     {
       name: "title",
@@ -40,5 +44,6 @@ export const hero_template = {
       label: "Subtitle",
       component: "text",
     },
+    ...ACTION_FIELDS,
   ],
 };

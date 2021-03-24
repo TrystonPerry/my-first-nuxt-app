@@ -8,14 +8,18 @@
       "_template": "Hero",
       "title": "The future of Technology is Democratized",
       "subtitle": "Software and Technology that works for you.",
-      "primaryButton": {
-        "text": "Learn More",
-        "link": "/all"
-      },
-      "secondaryButton": {
-        "text": "Secondary",
-        "link": "/"
-      }
+      "actions": [
+        {
+          "label": "Primary Action",
+          "type": "primary",
+          "link": "/"
+        },
+        {
+          "label": "Learn More",
+          "type": "secondary",
+          "link": "/"
+        }
+      ]
     },
     {
       "_template": "Paragraph",
