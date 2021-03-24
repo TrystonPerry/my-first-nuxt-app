@@ -6,6 +6,11 @@
   "blocks": [
     {
       "_template": "Hero",
+      "title": "Title",
+      "subtitle": "Subtitle"
+    },
+    {
+      "_template": "Hero",
       "title": "The future of Technology is Democratized",
       "subtitle": "Software and Technology that works for you.",
       "primaryButton": {
