@@ -3,70 +3,64 @@
   "head": {
     "title": "Democratized.Tech"
   },
-  "body": [
+  "blocks": [
     {
-      "component": "Hero",
-      "props": {
-        "title": "The future of Technology is Democratized",
-        "subtitle": "Software and Technology that works for you.",
-        "primaryButton": {
-          "text": "Learn More",
-          "link": "/all"
-        },
-        "secondaryButton": {
-          "text": "Secondary",
-          "link": "/"
-        }
+      "_template": "Hero",
+      "title": "The future of Technology is Democratized",
+      "subtitle": "Software and Technology that works for you.",
+      "primaryButton": {
+        "text": "Learn More",
+        "link": "/all"
+      },
+      "secondaryButton": {
+        "text": "Secondary",
+        "link": "/"
       }
     },
     {
-      "component": "Paragraph",
-      "props": {
-        "text": "",
-        "markdown": "intro-paragraph",
-        "className": "intro-paragraph"
-      }
+      "_template": "Paragraph",
+      "text": "",
+      "markdown": "intro-paragraph",
+      "className": "intro-paragraph"
     },
     {
-      "component": "Row",
-      "props": {
-        "flexible": true,
-        "children": [
-          {
-            "component": "TitleCard",
-            "props": {
-              "title": "Privacy",
-              "body": "It’s easier than ever for hackers and cyber-criminals to gain access to your personal information and use it against you. Open source software, by the name, is an open and independently verifiable system. You don’t need to trust that a corporation will keep you secure. You will keep yourself secure.",
-              "button": {
-                "text": "Learn More",
-                "link": "/privacy"
-              }
-            }
-          },
-          {
-            "component": "TitleCard",
-            "props": {
-              "title": "Security",
-              "body": "Few value their privacy and often think, “If I have nothing to hide, why should I care?”. Would you give anyone, even a friend, access to a list of all the places you’ve been, people you’ve met, things you’ve searched, things you’ve said, and websites you’ve visited? Do you think Google or Facebook are your friends?",
-              "button": {
-                "text": "Learn More",
-                "link": "/security"
-              }
-            }
-          },
-          {
-            "component": "TitleCard",
-            "props": {
-              "title": "Open Source",
-              "body": "You should have the right to know what your phone, tablet or PC is doing at all times. Currently, most widely used software is closed source because it is the intellectual property of a corporation. Open source democratizes the development process so the code is written for maximum utility rather than profitability.",
-              "button": {
-                "text": "Learn More",
-                "link": "/open-source"
-              }
+      "_template": "Row",
+      "flexible": true,
+      "children": [
+        {
+          "component": "TitleCard",
+          "props": {
+            "title": "Privacy",
+            "body": "It’s easier than ever for hackers and cyber-criminals to gain access to your personal information and use it against you. Open source software, by the name, is an open and independently verifiable system. You don’t need to trust that a corporation will keep you secure. You will keep yourself secure.",
+            "button": {
+              "text": "Learn More",
+              "link": "/privacy"
             }
           }
-        ]
-      }
+        },
+        {
+          "component": "TitleCard",
+          "props": {
+            "title": "Security",
+            "body": "Few value their privacy and often think, “If I have nothing to hide, why should I care?”. Would you give anyone, even a friend, access to a list of all the places you’ve been, people you’ve met, things you’ve searched, things you’ve said, and websites you’ve visited? Do you think Google or Facebook are your friends?",
+            "button": {
+              "text": "Learn More",
+              "link": "/security"
+            }
+          }
+        },
+        {
+          "component": "TitleCard",
+          "props": {
+            "title": "Open Source",
+            "body": "You should have the right to know what your phone, tablet or PC is doing at all times. Currently, most widely used software is closed source because it is the intellectual property of a corporation. Open source democratizes the development process so the code is written for maximum utility rather than profitability.",
+            "button": {
+              "text": "Learn More",
+              "link": "/open-source"
+            }
+          }
+        }
+      ]
     }
   ]
 }

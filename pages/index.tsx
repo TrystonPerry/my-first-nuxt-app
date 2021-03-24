@@ -1,10 +1,10 @@
 import React from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { usePlugin } from "tinacms";
+import { usePlugin, ModalProvider } from "tinacms";
 import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
 import { useGithubJsonForm } from "react-tinacms-github";
-import { InlineForm, InlineText, InlineTextarea } from "react-tinacms-inline";
+import { InlineBlocks, InlineForm } from "react-tinacms-inline";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import { GetStaticProps } from "next";
@@ -13,34 +13,60 @@ import CustomComponents from "../components/globals";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-export default function Home({ file }) {
-  const formOptions = {
-    label: file.data.label,
-    fields: [],
-  };
+import Hero, { hero_template } from "../components/Hero";
 
-  const [data, form] = useGithubJsonForm(file, formOptions);
+const PAGE_BLOCKS = {
+  Hero: {
+    Component: Hero,
+    template: hero_template,
+  },
+};
+
+export default function Home({ file }) {
+  // const formOptions = {
+  //   label: file.data.label,
+  //   fields: [
+  //     {
+  //       name: "",
+  //       label: "",
+  //       component: "Text"
+  //     }
+  //   ],
+  // };
+
+  const [data, form] = useGithubJsonForm(file);
   usePlugin(form);
 
   return (
-    <InlineForm form={form}>
-      <div className="page-wrapper">
-        <Head>
-          <title>{data.head.title}</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+    <ModalProvider>
+      <InlineForm form={form}>
+        <div className="page-wrapper">
+          <Head>
+            <title>{data.head.title}</title>
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
 
-        <Header />
+          <Header />
 
-        <main className="container">
-          {data.body.map(({ component, props }) =>
-            CustomComponents[component](props)
-          )}
-        </main>
+          <main className="container">
+            <InlineBlocks name="blocks" blocks={PAGE_BLOCKS} />
+            {/* {data.body.map(({ component, props }, index) => {
+            return (
+              <div key={index}>
+                {CustomComponents[component]({
+                  index,
+                  name: "body",
+                  data: props,
+                })}
+              </div>
+            );
+          })} */}
+          </main>
 
-        <Footer />
-      </div>
-    </InlineForm>
+          <Footer />
+        </div>
+      </InlineForm>
+    </ModalProvider>
   );
 }
 
@@ -57,9 +83,9 @@ export const getStaticProps: GetStaticProps = async function ({
   }
 
   const data = (await import("../content/index.json")).default;
-  const props = data.body[1].props;
-  const content = await import("../content/markdown/intro-paragraph.md");
-  props.text = matter(content.default).content;
+  // const props = data.body[1].props;
+  // const content = await import("../content/markdown/intro-paragraph.md");
+  // props.text = matter(content.default).content;
 
   return {
     props: {
