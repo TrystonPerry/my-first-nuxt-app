@@ -1,15 +1,29 @@
 :root {
-  --primary-color: rgb(55, 192, 28);
-  --secondary-color: rgb(3, 82, 36);
+  --primary-color: rgb(221, 46, 46);
+  --secondary-color: rgb(31, 3, 82);
+}
+
+@font-face {
+  font-family: "Source Code";
+  src: url("/fonts/SourceCodePro-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
-  background: black;
-  color: var(--primary-color);
+  line-height: 1.4;
 }
 
 a {
@@ -19,6 +33,7 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: "Montserrat";
 }
 
 h1,
@@ -49,26 +64,47 @@ p {
 
 .row {
   display: flex;
+  flex-wrap: wrap;
   margin-left: -1rem;
   margin-right: -1rem;
+  align-items: space-around;
+  justify-content: space-around;
 }
 
 .row-item {
-  margin: 1rem;
+  padding: 1rem;
+  margin: 0;
+}
+
+@media only screen and (min-width: 600px) {
+  .row-item {
+    width: 50%;
+  }
 }
 
 .hero {
   padding: 8rem 0 8rem 0;
   text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3rem;
 }
 
 .hero p {
-  padding: 0.5rem 0 0.5rem 0;
+  padding: 1rem 0 1rem 0;
+  /* font-weight: bold; */
+  font-size: 1.5rem;
+  max-width: 450px;
+  margin: 0 auto;
 }
 
 .card {
-  border: 1px solid var(--primary-color);
-  padding: 1rem;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.05);
 }
 
 .card p {
@@ -79,27 +115,43 @@ p {
   margin-left: 0;
 }
 
+.intro-paragraph {
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+}
+
+.intro-paragraph > p {
+  padding: 0.5rem 0;
+}
+
+.intro-paragraph strong,
+.intro-paragraph em {
+  color: var(--primary-color);
+}
+
 button {
   outline: 0;
   border: 0;
   padding: 0.5rem 1rem 0.5rem 1rem;
   margin: 0.5rem;
   cursor: pointer;
+  border-radius: 4px;
+  transition-duration: 200ms;
+  font-weight: bold;
 }
 
 .btn-primary {
   background: var(--primary-color);
-  color: var(--secondary-color);
+  color: white;
 }
 
 .btn-secondary {
-  background: var(--secondary-color);
+  background: transparent;
   color: var(--primary-color);
 }
 
 header {
-  background: var(--primary-color);
-  color: var(--secondary-color);
   padding: 1rem;
 }
 
@@ -108,7 +160,5 @@ main {
 }
 
 footer {
-  background: var(--primary-color);
-  color: var(--secondary-color);
   padding: 1rem;
 }

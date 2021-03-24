@@ -1,4 +1,5 @@
 {
+  "label": "Home Page",
   "head": {
     "title": "Democratized.Tech"
   },
@@ -6,8 +7,8 @@
     {
       "component": "Hero",
       "props": {
-        "title": "The future of Tech is Democratized",
-        "subtitle": "Take back your privacy, security and sovereignty.",
+        "title": "The future of Technology is Democratized",
+        "subtitle": "Software and Technology that works for you.",
         "primaryButton": {
           "text": "Learn More",
           "link": "/all"
@@ -21,7 +22,9 @@
     {
       "component": "Paragraph",
       "props": {
-        "text": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book."
+        "text": "",
+        "markdown": "intro-paragraph",
+        "className": "intro-paragraph"
       }
     },
     {
@@ -33,7 +36,7 @@
             "component": "TitleCard",
             "props": {
               "title": "Privacy",
-              "body": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+              "body": "It’s easier than ever for hackers and cyber-criminals to gain access to your personal information and use it against you. Open source software, by the name, is an open and independently verifiable system. You don’t need to trust that a corporation will keep you secure. You will keep yourself secure.",
               "button": {
                 "text": "Learn More",
                 "link": "/privacy"
@@ -44,7 +47,7 @@
             "component": "TitleCard",
             "props": {
               "title": "Security",
-              "body": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+              "body": "Few value their privacy and often think, “If I have nothing to hide, why should I care?”. Would you give anyone, even a friend, access to a list of all the places you’ve been, people you’ve met, things you’ve searched, things you’ve said, and websites you’ve visited? Do you think Google or Facebook are your friends?",
               "button": {
                 "text": "Learn More",
                 "link": "/security"
@@ -55,7 +58,7 @@
             "component": "TitleCard",
             "props": {
               "title": "Open Source",
-              "body": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+              "body": "You should have the right to know what your phone, tablet or PC is doing at all times. Currently, most widely used software is closed source because it is the intellectual property of a corporation. Open source democratizes the development process so the code is written for maximum utility rather than profitability.",
               "button": {
                 "text": "Learn More",
                 "link": "/open-source"
